@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salas de Chat e Chamadas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="config-warning" class="banner hidden"></div>
+
+  <section id="screen-join" class="screen">
+    <form id="join-form" class="card">
+      <h1>Entrar em uma sala</h1>
+      <label>ID da sala
+        <input id="room-id" inputmode="numeric" pattern="[0-9]+" maxlength="12" required placeholder="Ex.: 123" />
+      </label>
+      <label>Seu nome
+        <input id="user-name" maxlength="32" required placeholder="Como você quer aparecer" />
+      </label>
+      <button type="submit" class="primary">Entrar na sala</button>
+      <p id="join-error" class="error" role="alert"></p>
+    </form>
+  </section>
+
+  <section id="screen-room" class="screen hidden">
+    <header class="topbar">
+      <strong>Sala <span id="room-label"></span></strong>
+      <button id="copy-link" class="ghost" type="button">Copiar link</button>
+      <button id="leave-room" class="ghost danger" type="button">Sair da sala</button>
+    </header>
+
+    <main class="layout">
+      <section class="chat" aria-label="Chat da sala">
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <form id="chat-form" class="composer">
+          <textarea id="message-input" maxlength="2000" rows="1" placeholder="Escreva uma mensagem (Enter envia, Shift+Enter quebra linha)"></textarea>
+          <button type="submit" class="primary">Enviar</button>
+        </form>
+      </section>
+
+      <aside class="call" aria-label="Chamada de voz e vídeo">
+        <div class="call-controls">
+          <button id="btn-join-call" class="primary" type="button">Entrar na chamada</button>
+          <button id="btn-mic" class="hidden" type="button">Mutar</button>
+          <button id="btn-cam" class="hidden" type="button">Ligar câmera</button>
+          <button id="btn-screen" class="hidden" type="button">Compartilhar tela 1080p60</button>
+          <button id="btn-leave-call" class="hidden danger" type="button">Sair da chamada</button>
+        </div>
+        <div id="stage" class="stage"></div>
+        <div id="stats" class="stats hidden"></div>
+        <p class="hint">Para 1080p60 use Chrome ou Edge com upload estável de pelo menos 8 Mbps.</p>
+      </aside>
+    </main>
+  </section>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

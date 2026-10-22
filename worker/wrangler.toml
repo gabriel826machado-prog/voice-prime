@@ -1,0 +1,8 @@
+name = "salas-token"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Origens autorizadas, separadas por vírgula. Troque pelo seu endereço do Pages.
+ALLOWED_ORIGINS = "https://SEU-USUARIO.github.io,http://localhost:5500"
